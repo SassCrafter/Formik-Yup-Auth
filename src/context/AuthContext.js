@@ -30,6 +30,10 @@ export function AuthProvider({ children }) {
 		return auth.signOut();
 	};
 
+	const deleteUser = () => {
+		return auth.currentUser.delete();
+	};
+
 	useEffect(() => {
 		const listener = auth.onAuthStateChanged((user) => {
 			let updatedUser = null;
@@ -63,6 +67,7 @@ export function AuthProvider({ children }) {
 		signup,
 		login,
 		logout,
+		deleteUser,
 	};
 
 	return (
